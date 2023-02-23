@@ -8,7 +8,7 @@ eleventyNavigation:
 # <a href='https://github.com/holliskuang/RestStop'>RestStop</a> <img width=30px height=30px src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677132021/sleep_tryccy.png' /> <a href='https://github.com/holliskuang/RestStop'> <img src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677059898/github-logo_nwxhra.png' width=25px height=25px/></a>
 
 <h3>Electron , React , TypeScript </h3>
-<img src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677109653/electron_gTUu2vxlAk_mtk7uq.gif' width=100%></img>
+<img src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677133721/electron_nTCA3KEQ5s_podo5y.gif' width=100%></img>
 
 # <a href='https://listy.dev'>Listy.dev</a> <img src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1673004204/letter-l_pcq0m6.png' width=40px height=40px style="margin-left:5px"> </img> <a href='https://github.com/holliskuang/Listy.dev'><img src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677059898/github-logo_nwxhra.png' width=25px height=25px/></a>
 
