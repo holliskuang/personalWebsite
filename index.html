@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Welcome!</title>
+		<meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Welcome!">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Welcome!">
+		
+		<style>/* Message Box */
+.message-box {
+	--color-message-box: #ffc;
+
+	display: block;
+	text-align: center;
+	background-color: var(--color-message-box);
+	color: var(--color-gray-90);
+	padding: 1em 0.625em; /* 16px 10px /16 */
+}
+.message-box ol {
+	margin-top: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	.message-box {
+		--color-message-box: #082840;
+	}
+}
+* { box-sizing: border-box; }
+/* Defaults */
+:root {
+	--font-family: -apple-system, system-ui, sans-serif;
+	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Theme colors */
+:root {
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+
+	--background-color: #fff;
+
+	--text-color: var(--color-gray-90);
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+
+	--syntax-tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-gray-20: #e0e0e0;
+		--color-gray-50: #C0C0C0;
+		--color-gray-90: #dad8d8;
+
+		/* --text-color is assigned to --color-gray-_ above */
+		--text-color-link: #1493fb;
+		--text-color-link-active: #6969f7;
+		--text-color-link-visited: #a6a6f8;
+
+		--background-color: #15202b;
+	}
+}
+
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	max-width: 40em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.5;
+}
+
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px dashed var(--color-gray-20);
+}
+header:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.links-nextprev {
+	list-style: none;
+	border-top: 1px dashed var(--color-gray-20);
+	padding: 1em 0;
+}
+
+table {
+	margin: 1em 0;
+}
+table td,
+table th {
+	padding-right: 1em;
+}
+
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375; /* 22px /16 */
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+}
+code {
+	word-break: break-all;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em .5em;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 1em;
+}
+.home-link {
+	font-size: 1em; /* 16px /16 */
+	font-weight: 700;
+	margin-right: 2em;
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+	margin-right: 1em;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+}
+
+/* Posts list */
+.postlist {
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em; /* 13px /16 */
+	color: var(--color-gray-90);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em; /* 19px /16 */
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+
+/* Tags list */
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+}
+
+/* Direct Links / Markdown Headers */
+.header-anchor {
+	text-decoration: none;
+	font-style: normal;
+	font-size: 1em;
+	margin-left: .1em;
+}
+a[href].header-anchor,
+a[href].header-anchor:visited {
+	color: transparent;
+}
+a[href].header-anchor:focus,
+a[href].header-anchor:hover {
+	text-decoration: underline;
+}
+a[href].header-anchor:focus,
+:hover > a[href].header-anchor {
+	color: #aaa;
+}
+
+h2 + .header-anchor {
+	font-size: 1.5em;
+}
+
+#listy-dev {
+	display: flex;
+	align-items: center;
+}</style>
+	</head>
+	<body>
+		<a href="#skip" class="visually-hidden">Skip to main content</a>
+
+		<header>
+			<a href="/" class="home-link">Welcome!</a>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+					<li class="nav-item"><a href="/" aria-current="page">Home</a></li>
+					<li class="nav-item"><a href="/projects/">Portfolio</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="skip">
+			<!-- Delete this message, it will also remove the component CSS from the bundle -->
+<div class="message-box">
+
+		<p> <strong>My Latest Thought</strong></p>
+		<p> The Lambda sign kind of looks like a giraffe </p>
+		<img src="https://res.cloudinary.com/dd97ovnmi/image/upload/v1677047268/lambdaRaf_zwytte.png" 
+		height="80px" width="80px"></img>
+
+	
+</div>
+<!-- Stop deleting -->
+
+
+<h3>Who Am I?</h3>
+<p>Hi! Thank you for taking the time to look at my page. </p>
+<p> I'm Hollis Kuang, a first-generation college graduate. I currently work as a Management Consultant based out
+ of San Francsico. When I'm not thinking about the bottom line, I am most likely 
+ <span style='color:red'>p</span><span style='color:blue'>r</span><span style='color:green'>o</span><span style='color:cyan'>g</span><span 
+ style='color:orange'>a</span><span style='color:indigo'>m</span><span 
+ style='color:orange'>m</span><span style='color:red'>i</span><span style='color:green'>n</span><span 
+ style='color:indigo'>g</span>. 
+  I also exercise . . . sometimes, every now and then, when I get the chance.   </p>
+
+<p> I think a lot about the beauty and complexity of what we are able to derive out of simple 
+binary. That is why I code.</p>
+<p>
+
+<h3>From Humble Beginnings</h3>
+<p> My first programming language was  <img 
+src="https://res.cloudinary.com/dd97ovnmi/image/upload/c_scale,w_164/v1677052536/Java_programming_language_logo.svg_bug6ht.png" height="40px"
+ ></img>, in a course where we used DrJava, an IDE which was first released around when I was born. Unfortunately, the students who
+ now take the course are forced to use IntelliJ. Throughout the semester, I was able to uncover the optimal solution to the elusive Traveling Salesman Problem
+ but not what <span style='color:green'>public</span>
+  <span style='color:red'>static</span>
+   <span style='color: blue'>void</span>
+    <span style='color: purple'>main(<span style='color:orange'>String[]</span> <span style='color:cyan'>args</span>)</span> meant. </p>
+<p>Eventually, I learned about dynamically typed languages like Javascript and thought that I was saved. But nowaways, I find myself using the strongly-typed versions of weakly-typed languages.
+ It's funny how things work out. Thank you Microsoft! </p>
+<p>On that note, I love the Open Source Communnity that you can find in progamming. It's what keeps me coding. It's a culture of collaboration
+and selflessness that you will rarely find anywhere else. &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp	 And it is beautiful in a way, how interconnected the world wide web is because of these very
+principles. It inspires me and makes me hope that one day, I can also contribute back to this community which I have gained so much knowledge from.
+<i> <small>(I see a lot of isEven npm packages but not a lot of isOdd packages)</small></i></p>
+<div style='display:flex; justify-content:center; margin:40px;' >
+<form method="post" target="_blank" action="https://poll.pollcode.com/32792352">
+<div style="background-color:#EEEEEE;padding:2px;width:190px;font-family:Verdana;font-size:small;
+color:#000000;box-shadow: 0px 0px 5px #888;"><div style="padding:2px 0px 4px 2px;"><strong>If you
+ were a sort, what sort would you be?</strong></div><input type="radio" name="answer" value="1" id="answer327923521" 
+ style="float:left;" /><label for="answer327923521" style="float:left;width:165px;">QuickSort</label><div 
+ style="clear:both;height:2px;"></div><input type="radio" name="answer" value="2" id="answer327923522" style="float:left;" 
+ /><label for="answer327923522" style="float:left;width:165px;">Bubble Sort</label><div style="clear:both;height:2px;">
+ </div><input type="radio" name="answer" value="3" id="answer327923523" style="float:left;" /><label for="answer327923523"
+  style="float:left;width:165px;">Quantum Bogo Sort</label><div style="clear:both;height:2px;"></div><div align="center"
+   style="padding:3px;"><input type="submit" value=" Vote "></div><div align="right" style="font-size:10px"></div></div>
+   </form> </div>
+<p>This site is generated using <a href='https://www.11ty.dev/docs/'>11ty</a>, a zero-config static site generator. Honestly, Jekyll would
+have worked fine but I'm a sucker for the newest shiniest thing in town.</p>
+   <p>If you'd like to contact me, please feel free to email me at: <a href = "mailto: kuanghollis@gmail.com">kuanghollis@gmail.com</a></p>
+   <span style='display:flex; justify-content:center'><p>Otherwise, you can click on one of the buttons below </p> </span>
+   <span style='display:flex; justify-content:space-evenly ; width:100%; margin-top:20px'> 
+   
+   <a href='https://github.com/holliskuang'><img height='40px' width='40px' src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677059898/github-logo_nwxhra.png'></img></a>
+      <a href='https://www.linkedin.com/in/hollis-kuang/'><img height='40px' width='40px' src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677059898/linkedin_1_arx80z.png'></img></a>
+	        <a href='https://www.linkedin.com/in/hollis-kuang/'><img height='40px' width='40px' src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677060634/curriculum-vitae_voiolj.png'></img></a>
+			  <a href='mailto: kuanghollis@gmail.com'><img height='40px' width='40px' src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677060638/mail_fdn4yh.png'></img></a>
+   </span>
+
+		</main>
+
+		<footer></footer>
+
+		<!-- Current page: / -->
+	</body>
+</html>
