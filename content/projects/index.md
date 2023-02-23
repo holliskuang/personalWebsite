@@ -12,4 +12,11 @@ eleventyNavigation:
 
 # Listy.dev <img src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1673004204/letter-l_pcq0m6.png' width=30px height=30px style="margin-left:5px"> </img>
 
-<h3>Node , React , Firebase</h3>
+<h3>Express , React , Firebase</h3>
+<img style='border:1px solid black'src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677112382/chrome_y1nFtDL9Kt_cuuvbp.gif' width=100%/>
+
+# FriendSpace
+
+<h3>React, Express, MongoDB</h3>
+
+<img  style='border:1px solid black' src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677113683/chrome_zKY7exhAMr_mdzad1.jpg' width=100%/>
