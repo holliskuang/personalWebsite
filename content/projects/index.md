@@ -28,7 +28,7 @@ The application currently supports <strong style="color:red ">HTTP</strong> ,  <
 
 # <a href='https://github.com/holliskuang/FriendSpace'>FriendSpace</a> <img width=30px height=30px src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677131194/friends_irkpgb.png'/> <a href='https://github.com/holliskuang/FriendSpace'><img src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677059898/github-logo_nwxhra.png' width=25px height=25px/></a>
 
-<h3>React, Express, MongoDB , Redux </h3>
+<h3> MongoDB, Express, React, Node </h3>
 
 <img  style='border:1px solid black' src='https://res.cloudinary.com/dd97ovnmi/image/upload/v1677113683/chrome_zKY7exhAMr_mdzad1.jpg' width=100%/>
 
